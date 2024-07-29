@@ -18,6 +18,8 @@
     "@strapi/strapi": "4.25.5",
     "ajv": "^8.17.1",
     "better-sqlite3": "8.6.0",
+    "pg": "^8.12.0",
+    "pg-connection-string": "^2.6.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
@@ -30,7 +32,7 @@
     "uuid": "08c38cc8-027a-4bf6-aa32-63e0c3ea253f"
   },
   "engines": {
-    "node": ">=18.0.0 <=20.x.x",
+    "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
