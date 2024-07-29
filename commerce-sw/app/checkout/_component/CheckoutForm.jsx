@@ -28,8 +28,8 @@ const CheckoutForm = ({amount}) => {
       setErrorMessage(error.message) 
     }
 
-    createOrder();
-    sendEmail();
+    await createOrder();
+    await sendEmail();
 
 
     const {error: submitError} = await elements.submit();
