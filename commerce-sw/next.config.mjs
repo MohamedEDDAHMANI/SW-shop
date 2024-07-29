@@ -9,7 +9,11 @@ const nextConfig = {
               pathname: '/**',
             },
           ],
-    }
+    },
+    reactStrictMode: true,
+    env: {
+      RESEND_API_KEY: process.env.RESEND_API_KEY,
+  },
 };
 
 export default nextConfig;

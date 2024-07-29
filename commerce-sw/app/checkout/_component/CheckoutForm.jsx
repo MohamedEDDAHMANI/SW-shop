@@ -5,7 +5,7 @@ import { useUser } from '@clerk/nextjs';
 import cardApi from '../../_utils/cardApi';
 import ordersApi from '../../_utils/ordersApi'
 
-const CheckoutForm = ({amount}) => {
+const CheckoutForm = ({amount}) => { 
   const {card, setCard} = useContext(CardContext)
   const {user} = useUser()
   const stripe = useStripe();
@@ -23,13 +23,17 @@ const CheckoutForm = ({amount}) => {
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
+
+    
+    
     const handleError = (error)=>{
       setLoading(false)
       setErrorMessage(error.message) 
     }
-
-    await createOrder();
-    await sendEmail();
+    
+    
+    createOrder();
+    sendEmail();
 
 
     const {error: submitError} = await elements.submit();
@@ -102,8 +106,12 @@ const CheckoutForm = ({amount}) => {
     try {
       const res = await fetch('api/send-email',{ 
         method:'POST',
-        body: JSON.stringify({ fullName: user.fullName }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ fullName: user.fullName, email: user.primaryEmailAddress.emailAddress })
       })
+
       console.log(res)
     } catch (error) {
       console.log(error)
